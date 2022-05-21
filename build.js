@@ -47,8 +47,8 @@ async function downloadStickers(name, list, type) {
     name,
     prefix,
     type,
-    icon: list[0].name,
-    items: list.map(e => e.name)
+    icon: removeSpace(list[0].name),
+    items: list.map(e => removeSpace(e.name))
   }
   await writeFile(resolvePath(saveDir, 'info.json'), JSON.stringify(info))
   for (const item of list) {
